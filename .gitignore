@@ -1,0 +1,14 @@
+/node_modules
+/*.log
+/dist
+/dist-zip
+
+/.idea
+/.vscode
+/.vagrant
+
+npm-debug.log
+yarn-error.log
+
+.phpstorm.meta.php
+/nbproject
