@@ -1,16 +1,16 @@
 <template>
-  <div>
-    <h1>Строница настроек</h1>
-  </div>
+  <p>Hello world new!</p>
 </template>
 
 <script>
 export default {
-  name: 'Options',
+  data() {
+    return {};
+  },
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 p {
   font-size: 20px;
 }

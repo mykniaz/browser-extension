@@ -5,6 +5,6 @@ global.browser = require('webextension-polyfill');
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
+  el: '#options',
   render: h => h(App),
 });
