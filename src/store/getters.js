@@ -1,1 +1,3 @@
-export const foo = state => state.foo;
+export default {
+  foo: state => state.foo
+};

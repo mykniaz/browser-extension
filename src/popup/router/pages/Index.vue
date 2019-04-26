@@ -8,7 +8,7 @@
       <li>
         <button
           type="button"
-          @click="goTo('/new')"
+          @click="goTo('/weather')"
         >
           Пример получения данных
       </button>

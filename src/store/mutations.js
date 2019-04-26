@@ -1,5 +1,5 @@
 export default {
-  UPDATE_FOO(state, payload) {
-    state.foo = payload;
+  updateState(state, data) {
+    Object.assign(state, data);
   },
 };

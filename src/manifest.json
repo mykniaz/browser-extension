@@ -19,5 +19,15 @@
   "options_ui": {
     "page": "options/options.html",
     "chrome_style": true
-  }
+  },
+  "content_scripts": [ {
+    "matches": ["http://*"],
+    "js": ["scripts.js"]
+  } ],
+  "permissions": [
+    "*://samples.openweathermap.org/*"
+  ],
+  "optional_permissions": [
+    "*://samples.openweathermap.org/*"
+  ]
 }

@@ -1,13 +1,13 @@
-import PageIndex from './pages/Index';
-import PageNew from './pages/New';
+import Index from './pages/Index';
+import Weather from './pages/Weather';
 
 export default [
   {
     path: '/',
-    component: PageIndex,
+    component: Index,
   },
   {
-    path: '/new',
-    component: PageNew,
+    path: '/weather',
+    component: Weather,
   }
 ];
