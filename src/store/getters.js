@@ -1,3 +1,3 @@
 export default {
-  foo: state => state.foo
+  foo: state => state.foo,
 };

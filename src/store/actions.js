@@ -4,20 +4,14 @@ import VueResource from 'vue-resource';
 
 Vue.use(VueResource);
 
-Vue.http.interceptors.push((request, next) => {
-  request.url += `${(request.url.indexOf('?') > 0 ? '&' : '?')}cache=${new Date().getTime()}`;
-  next();
-});
-
-const WEATHER_KEY = 'b6907d289e10d714a6e88b30761fae22';
+const WEATHER_KEY = '0a9000e79918703ccb117bc68119d501';
 
 export default {
   GET_WEATHER({ commit }, city) {
-    const requestLink = `https://samples.openweathermap.org/data/2.5/forecast/hourly?q=${city},us&mode=xml&appid=${WEATHER_KEY}`;
+    const requestLink = `https://api.darksky.net/forecast/${WEATHER_KEY}/50.0, 36.15`;
 
-    return Vue.http.get(requestLink)
-      .then((response) => {
-        commit('updateState', { weather: weatherdata });
-      })
+    return Vue.http.get(requestLink).then(({ body }) => {
+      commit('updateState', { weather: body });
+    });
   },
-}
+};

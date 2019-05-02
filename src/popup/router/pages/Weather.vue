@@ -1,8 +1,6 @@
 <template>
   <div>
-    <button
-      @click="getWeather"
-    >
+    <button @click="getWeather">
       Получить погоду
     </button>
     {{ weather }}
@@ -14,22 +12,18 @@
 import { mapActions, mapState } from 'vuex';
 
 export default {
-name: 'Weather',
+  name: 'Weather',
 
-computed: {
-  ...mapState([
-    'weather',
-  ]),
-},
+  computed: {
+    ...mapState(['weather']),
+  },
 
-methods: {
-  ...mapActions([
-    'GET_WEATHER',
-  ]),
+  methods: {
+    ...mapActions(['GET_WEATHER']),
 
-  getWeather() {
-    this.GET_WEATHER('London');
-  }
-},
+    getWeather() {
+      this.GET_WEATHER('London');
+    },
+  },
 };
 </script>
