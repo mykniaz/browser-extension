@@ -11,10 +11,17 @@
           @click="goTo('/weather')"
         >
           Пример получения данных
-      </button>
+        </button>
+      </li>
+      <li>
+        <button
+          type="button"
+          @click="goTo('/browser')"
+        >
+          объект Browser
+        </button>
       </li>
     </ul>
-    
   </div>
 </template>
 
@@ -28,14 +35,8 @@ export default {
 
   methods: {
     goTo(link) {
-      this.$router.push(link)
-    }
+      this.$router.push(link);
+    },
   },
 };
 </script>
-
-<style lang="scss" scoped>
-p {
-  font-size: 20px;
-}
-</style>

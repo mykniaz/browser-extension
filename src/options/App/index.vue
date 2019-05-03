@@ -1,6 +1,6 @@
 <template>
   <div
-    :style="`color: ${backgroundColor}`"
+    :style="{ backgroundColor: backgroundColor }"
     class="options"
   >
     <h1>Страница настроек</h1>
@@ -8,9 +8,10 @@
       <template slot="title">
         Цвет
       </template>
-      <select @change="changeColor" v-model="backgroundColor">
+      <select @change="changeColor" v-model="color">
         <option value="#fff">Белый</option>
         <option value="#333">Серый</option>
+        <option value="#00ff00">Зеленый</option>
       </select>
     </OptionsRow>
   </div>
@@ -18,7 +19,7 @@
 
 <script>
 // Vuex
-import { mapMutations, mapState, mapGetters } from 'vuex';
+import { mapMutations, mapGetters } from 'vuex';
 
 // Components
 import OptionsRow from './OptionsRow';
@@ -31,19 +32,22 @@ export default {
   },
 
   data: () => ({
-    backgroundColor: null,
+    color: '',
   }),
+
+  mounted() {
+    this.color = this.backgroundColor;
+  },
 
   computed: {
     ...mapGetters(['backgroundColor']),
-    ...mapState(['options']),
   },
 
   methods: {
     ...mapMutations(['updateOption']),
 
     changeColor() {
-      this.updateOption({ backgroundColor: this.backgroundColor });
+      this.updateOption({ backgroundColor: this.color });
     },
   },
 };
