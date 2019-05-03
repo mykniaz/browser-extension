@@ -1,17 +1,11 @@
 <template>
   <div :style="{ backgroundColor: backgroundColor }">
     <h1>
-      Обьект Browser
+      Текущая вкладка
     </h1>
     <div>
-      {{ browserInfo }}
+      {{ tabsInfo }}
     </div>
-		<h1>
-			Обьект Location
-		</h1>
-		<div>
-			{{ locationInfo }}
-		</div>
   </div>
 </template>
 
@@ -22,19 +16,24 @@ import { mapGetters } from 'vuex';
 export default {
   name: 'Browser',
 
+  data: () => ({
+    tabsInfo: {},
+  }),
+
   computed: {
     ...mapGetters(['backgroundColor']),
-
-    browserInfo() {
-      return this.$browser;
-    },
-    locationInfo() {
-      return location;
-    },
   },
 
   created() {
-    console.log(location, this.$browser);
+    this.setActiveTab();
+  },
+
+  methods: {
+    setActiveTab() {
+      this.$browser.tabs.query({ active: true, windowId: browser.windows.WINDOW_ID_CURRENT }).then(tabs => {
+        this.tabsInfo = tabs;
+      });
+    },
   },
 };
 </script>

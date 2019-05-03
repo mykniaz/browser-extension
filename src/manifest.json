@@ -23,13 +23,22 @@
       "background.js"
     ]
   },
+  // Yoy can Add script on page
+  "content_scripts": [
+    {
+      "matches": ["*://*.mozilla.org/*"],
+      "js": ["content.js"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
   // If you need to use options popup:
   "options_ui": {
     "page": "options/options.html"
   },
-  // If you need to use options page:
-  // "options_page": "options/options.html",
+  // If you need to use option:"options_page": "options/options.html",
   "permissions": [
-    "*://api.darksky.net/forecast/*"
+    "*://api.darksky.net/forecast/*",
+    "tabs"
   ]
 }

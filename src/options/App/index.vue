@@ -10,7 +10,7 @@
       </template>
       <select @change="changeColor" v-model="color">
         <option value="#fff">Белый</option>
-        <option value="#333">Серый</option>
+        <option value="#999">Серый</option>
         <option value="#00ff00">Зеленый</option>
       </select>
     </OptionsRow>
@@ -48,6 +48,8 @@ export default {
 
     changeColor() {
       this.updateOption({ backgroundColor: this.color });
+
+      sendMessageToTabs()
     },
   },
 };
