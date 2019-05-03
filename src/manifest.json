@@ -1,8 +1,22 @@
 {
   "name": "browser-extension",
   "description": "A Vue.js web extension",
+  "developer": {
+    "name": "Eugene Kniaziev",
+    "url": "https://www.linkedin.com/in/eugene-kniaziev-84b846169/"
+  },
+  "commands": {
+    "toggle-feature": {
+      "suggested_key": {
+        "default": "Alt+Shift+U",
+        "linux": "Ctrl+Shift+U"
+      },
+      "description": "Send a 'toggle-feature' event to the extension"
+    }
+  },
+  "incognito": "spanning", // Allowed "spanning", "split" and "not_allowed"
   "version": null,
-  "manifest_version": 2,
+  "manifest_version": 2, // Currently, this must always be 2
   "icons": {
     "48": "icons/icon_48.png",
     "128": "icons/icon_128.png"
@@ -11,15 +25,18 @@
     "default_title": "browser-extension",
     "default_popup": "popup/popup.html"
   },
+  // Background scripts are loaded as soon as the extension
+  // is loaded and stay loaded until the extension is disabled or uninstalled:
   "background": {
     "scripts": [
       "background.js"
     ]
   },
+  // If you need to use options popup:
   "options_ui": {
     "page": "options/options.html"
   },
-  // if you wont to get jsut a simpla options page use:
+  // If you need to use options page:
   // "options_page": "options/options.html",
   "permissions": [
     "*://api.darksky.net/forecast/*"
