@@ -68,7 +68,7 @@ const config = {
       {
         from: 'manifest.json',
         to: 'manifest.json',
-        transform: (content) => {
+        transform: content => {
           const jsonContent = JSON.parse(content);
           jsonContent.version = version;
 
@@ -94,9 +94,7 @@ if (config.mode === 'production') {
 }
 
 if (process.env.HMR === 'true') {
-  config.plugins = (config.plugins || []).concat([
-    new ChromeExtensionReloader(),
-  ]);
+  config.plugins = (config.plugins || []).concat([new ChromeExtensionReloader()]);
 }
 
 function transformHtml(content) {

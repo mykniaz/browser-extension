@@ -12,12 +12,12 @@ const extractExtensionData = () => {
 
   return {
     name: extPackageJson.name,
-    version: extPackageJson.version
-  }
+    version: extPackageJson.version,
+  };
 };
 
 const makeDestZipDirIfNotExists = () => {
-  if(!fs.existsSync(DEST_ZIP_DIR)) {
+  if (!fs.existsSync(DEST_ZIP_DIR)) {
     fs.mkdirSync(DEST_ZIP_DIR);
   }
 };
@@ -25,7 +25,7 @@ const makeDestZipDirIfNotExists = () => {
 const buildZip = (src, dist, zipFilename) => {
   console.info(`Building ${zipFilename}...`);
 
-  const archive = archiver('zip', { zlib: { level: 9 }});
+  const archive = archiver('zip', { zlib: { level: 9 } });
   const stream = fs.createWriteStream(path.join(dist, zipFilename));
 
   return new Promise((resolve, reject) => {
@@ -40,7 +40,7 @@ const buildZip = (src, dist, zipFilename) => {
 };
 
 const main = () => {
-  const {name, version} = extractExtensionData();
+  const { name, version } = extractExtensionData();
   const zipFilename = `${name}-v${version}.zip`;
 
   makeDestZipDirIfNotExists();

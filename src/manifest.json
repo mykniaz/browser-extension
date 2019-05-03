@@ -17,9 +17,10 @@
     ]
   },
   "options_ui": {
-    "page": "options/options.html",
-    "chrome_style": true
+    "page": "options/options.html"
   },
+  // if you wont to get jsut a simpla options page use:
+  // "options_page": "options/options.html",
   "permissions": [
     "*://api.darksky.net/forecast/*"
   ]
