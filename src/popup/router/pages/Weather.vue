@@ -3,7 +3,14 @@
     <button @click="getWeather">
       Получить погоду
     </button>
-    {{ weather }}
+    <ol v-if="weather.daily">
+      <li
+        v-for="(item, index) in weather.daily.data"
+        :key="index"
+      >
+        {{ item }}
+      </li>
+    </ol>
   </div>
 </template>
 

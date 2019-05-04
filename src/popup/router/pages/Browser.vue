@@ -4,6 +4,12 @@
       Текущая вкладка
     </h1>
     <div>
+      {{ tabInfo }}
+    </div>
+    <h1>
+      Открытые вкладки
+    </h1>
+    <div>
       {{ tabsInfo }}
     </div>
   </div>
@@ -17,7 +23,8 @@ export default {
   name: 'Browser',
 
   data: () => ({
-    tabsInfo: {},
+    tabInfo: {},
+    tabsInfo: [],
   }),
 
   computed: {
@@ -25,14 +32,17 @@ export default {
   },
 
   created() {
-    this.setActiveTab();
+    this.getTabsByFilter({ active: true, windowId: browser.windows.WINDOW_ID_CURRENT }).then(tabs => {
+      this.tabInfo = tabs[0];
+    });
+    this.tabsInfo = this.getTabsByFilter({ currentWindow: true }).then(tabs => {
+      this.tabsInfo = tabs;
+    });
   },
 
   methods: {
-    setActiveTab() {
-      this.$browser.tabs.query({ active: true, windowId: browser.windows.WINDOW_ID_CURRENT }).then(tabs => {
-        this.tabsInfo = tabs;
-      });
+    getTabsByFilter(filter) {
+      return this.$browser.tabs.query(filter);
     },
   },
 };
