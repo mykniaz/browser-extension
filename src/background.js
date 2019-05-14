@@ -14,9 +14,16 @@ browser.contextMenus.onClicked.addListener(info => {
     });
   }
 });
-//
-// browser.browserAction.onClicked.addListener(() => {
-//   browser.tabs.create({
-//     url: "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions"
-//   });
-// });
+
+// Create Bookmark
+function onCreated(node) {
+  console.log(node);
+}
+
+var createBookmark = browser.bookmarks.create({
+  title: "workle",
+  url: "https://workle.ru/",
+});
+
+
+createBookmark.then(onCreated);

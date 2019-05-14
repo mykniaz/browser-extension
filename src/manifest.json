@@ -36,6 +36,7 @@
     "*://api.darksky.net/forecast/*",
     "tabs",
     "activeTab",
-    "contextMenus"
+    "contextMenus",
+    "bookmarks"
   ]
 }

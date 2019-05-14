@@ -1,6 +1,12 @@
 <template>
   <div :style="{ backgroundColor: backgroundColor }">
     <h1>
+      Манифест
+    </h1>
+    <div>
+      {{ $browser.runtime.getManifest() }}
+    </div>
+    <h1>
       Открытые вкладки
     </h1>
     <div>
