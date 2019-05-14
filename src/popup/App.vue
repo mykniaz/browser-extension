@@ -4,16 +4,8 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {};
-  },
-};
-</script>
-
 <style lang="scss">
 .popup {
-  width: 300px;
+  width: 400px;
 }
 </style>

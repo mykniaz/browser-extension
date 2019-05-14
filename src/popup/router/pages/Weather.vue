@@ -1,5 +1,11 @@
 <template>
   <div>
+    <button
+      type="button"
+      @click="goTo('/')"
+    >
+      назад
+    </button>
     <button @click="getWeather">
       Получить погоду
     </button>
@@ -30,6 +36,10 @@ export default {
 
     getWeather() {
       this.GET_WEATHER('London');
+    },
+
+    goTo(link) {
+      this.$router.push(link);
     },
   },
 };

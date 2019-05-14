@@ -1,5 +1,11 @@
 <template>
   <div :style="{ backgroundColor: backgroundColor }">
+    <button
+      type="button"
+      @click="goTo('/')"
+    >
+      назад
+    </button>
     <h1>
       Манифест
     </h1>
@@ -39,6 +45,10 @@ export default {
   methods: {
     getTabsByFilter(filter) {
       return this.$browser.tabs.query(filter);
+    },
+
+    goTo(link) {
+      this.$router.push(link);
     },
   },
 };
